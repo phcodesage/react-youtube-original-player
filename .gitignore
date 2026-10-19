@@ -1,0 +1,15 @@
+node_modules/
+dist/
+demo-dist/
+coverage/
+playwright-report/
+test-results/
+research/
+.env*
+!.env.example
+.DS_Store
+*.tgz
+demo-debug.png
+artifacts/
+.browser-check/
+.venv/

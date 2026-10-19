@@ -1,0 +1,314 @@
+{
+  "date": "2026-10-20",
+  "platform": "macOS arm64",
+  "node": "26.8.1",
+  "ytDlp": "2026.08.19",
+  "checks": [
+    {
+      "engine": "chromium",
+      "browser": "149.0.7827.55",
+      "videoId": "8TT2-kwAss0",
+      "title": "Así es el único país Africano que habla español | Guinea Ecuatorial 🇬🇶",
+      "viewerLocale": "en-US",
+      "originalLanguage": "es",
+      "selection": {
+        "evidence": "youtube-original-metadata",
+        "audioFormatId": "233-6",
+        "videoFormatId": "311",
+        "audioLabel": "Español - original (original)"
+      },
+      "audioRenditions": 1,
+      "playback": {
+        "time": 1.004811,
+        "duration": 862.3781280000004,
+        "paused": false,
+        "speed": 1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "es"
+          }
+        ]
+      },
+      "resumed": {
+        "time": 121.039495,
+        "duration": 862.3781280000004,
+        "paused": true,
+        "speed": 1.1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "es"
+          }
+        ]
+      },
+      "seekAndEndEvents": true,
+      "pageErrors": []
+    },
+    {
+      "engine": "chromium",
+      "browser": "149.0.7827.55",
+      "videoId": "Af6i6ChAVTw",
+      "title": "Last To Leave Mansion, Keeps It",
+      "viewerLocale": "es-ES",
+      "originalLanguage": "en",
+      "selection": {
+        "evidence": "youtube-original-metadata",
+        "audioFormatId": "233-21",
+        "videoFormatId": "232",
+        "audioLabel": "English - original (original)"
+      },
+      "audioRenditions": 1,
+      "playback": {
+        "time": 1.009251,
+        "duration": 3470.833847000003,
+        "paused": false,
+        "speed": 1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "en"
+          }
+        ]
+      },
+      "resumed": {
+        "time": 121.040651,
+        "duration": 3470.833847000003,
+        "paused": true,
+        "speed": 1.1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "en"
+          }
+        ]
+      },
+      "seekAndEndEvents": true,
+      "pageErrors": []
+    },
+    {
+      "engine": "firefox",
+      "browser": "157.0",
+      "videoId": "8TT2-kwAss0",
+      "title": "Así es el único país Africano que habla español | Guinea Ecuatorial 🇬🇶",
+      "viewerLocale": "en-US",
+      "originalLanguage": "es",
+      "selection": {
+        "evidence": "youtube-original-metadata",
+        "audioFormatId": "233-6",
+        "videoFormatId": "311",
+        "audioLabel": "Español - original (original)"
+      },
+      "audioRenditions": 1,
+      "playback": {
+        "time": 1.006109,
+        "duration": 862.3781280000004,
+        "paused": false,
+        "speed": 1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "es"
+          }
+        ]
+      },
+      "resumed": {
+        "time": 121.043281,
+        "duration": 862.3781280000004,
+        "paused": true,
+        "speed": 1.1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "es"
+          }
+        ]
+      },
+      "seekAndEndEvents": true,
+      "pageErrors": []
+    },
+    {
+      "engine": "firefox",
+      "browser": "157.0",
+      "videoId": "Af6i6ChAVTw",
+      "title": "Last To Leave Mansion, Keeps It",
+      "viewerLocale": "es-ES",
+      "originalLanguage": "en",
+      "selection": {
+        "evidence": "youtube-original-metadata",
+        "audioFormatId": "233-21",
+        "videoFormatId": "232",
+        "audioLabel": "English - original (original)"
+      },
+      "audioRenditions": 1,
+      "playback": {
+        "time": 1.002706,
+        "duration": 3470.833847000003,
+        "paused": false,
+        "speed": 1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "en"
+          }
+        ]
+      },
+      "resumed": {
+        "time": 121.051252,
+        "duration": 3470.833847000003,
+        "paused": true,
+        "speed": 1.1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "en"
+          }
+        ]
+      },
+      "seekAndEndEvents": true,
+      "pageErrors": []
+    },
+    {
+      "engine": "webkit",
+      "browser": "27.2",
+      "videoId": "8TT2-kwAss0",
+      "title": "Así es el único país Africano que habla español | Guinea Ecuatorial 🇬🇶",
+      "viewerLocale": "en-US",
+      "originalLanguage": "es",
+      "selection": {
+        "evidence": "youtube-original-metadata",
+        "audioFormatId": "233-6",
+        "videoFormatId": "311",
+        "audioLabel": "Español - original (original)"
+      },
+      "audioRenditions": 1,
+      "playback": {
+        "time": 1.014023871,
+        "duration": 862.3781280000004,
+        "paused": false,
+        "speed": 1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "es"
+          }
+        ]
+      },
+      "resumed": {
+        "time": 121.006042447,
+        "duration": 862.3781280000004,
+        "paused": true,
+        "speed": 1.1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "es"
+          }
+        ]
+      },
+      "seekAndEndEvents": true,
+      "pageErrors": []
+    },
+    {
+      "engine": "webkit",
+      "browser": "27.2",
+      "videoId": "Af6i6ChAVTw",
+      "title": "Last To Leave Mansion, Keeps It",
+      "viewerLocale": "es-ES",
+      "originalLanguage": "en",
+      "selection": {
+        "evidence": "youtube-original-metadata",
+        "audioFormatId": "233-21",
+        "videoFormatId": "232",
+        "audioLabel": "English - original (original)"
+      },
+      "audioRenditions": 1,
+      "playback": {
+        "time": 1.010073066,
+        "duration": 3470.833847000003,
+        "paused": false,
+        "speed": 1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "en"
+          }
+        ]
+      },
+      "resumed": {
+        "time": 121.008347419,
+        "duration": 3470.833847000003,
+        "paused": true,
+        "speed": 1.1,
+        "tracks": [
+          {
+            "name": "Original",
+            "language": "en"
+          }
+        ]
+      },
+      "seekAndEndEvents": true,
+      "pageErrors": []
+    },
+    {
+      "engine": "webkit",
+      "nativeHls": true,
+      "browser": "27.2",
+      "videoId": "8TT2-kwAss0",
+      "title": "Así es el único país Africano que habla español | Guinea Ecuatorial 🇬🇶",
+      "viewerLocale": "en-US",
+      "originalLanguage": "es",
+      "selection": {
+        "evidence": "youtube-original-metadata",
+        "audioFormatId": "233-6",
+        "videoFormatId": "311",
+        "audioLabel": "Español - original (original)"
+      },
+      "audioRenditions": 1,
+      "playback": {
+        "time": 1.0066737503332857,
+        "duration": 862.378,
+        "paused": false,
+        "speed": 1
+      },
+      "resumed": {
+        "time": 121.0054722091162,
+        "duration": 862.378,
+        "paused": true,
+        "speed": 1.1
+      },
+      "seekAndEndEvents": true,
+      "pageErrors": []
+    },
+    {
+      "engine": "webkit",
+      "nativeHls": true,
+      "browser": "27.2",
+      "videoId": "Af6i6ChAVTw",
+      "title": "Last To Leave Mansion, Keeps It",
+      "viewerLocale": "es-ES",
+      "originalLanguage": "en",
+      "selection": {
+        "evidence": "youtube-original-metadata",
+        "audioFormatId": "233-21",
+        "videoFormatId": "232",
+        "audioLabel": "English - original (original)"
+      },
+      "audioRenditions": 1,
+      "playback": {
+        "time": 1.004839333332321,
+        "duration": 3470.833,
+        "paused": false,
+        "speed": 1
+      },
+      "resumed": {
+        "time": 121.00971055554172,
+        "duration": 3470.833,
+        "paused": true,
+        "speed": 1.1
+      },
+      "seekAndEndEvents": true,
+      "pageErrors": []
+    }
+  ]
+}
