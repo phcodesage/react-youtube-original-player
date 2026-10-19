@@ -11,6 +11,12 @@ Checked 2026-10-20 on macOS arm64, Node 26.8.1, Playwright 1.64.1, and yt-dlp 20
 - HTTP tests exercise manifest rewriting, byte ranges, session reuse, rejected redirects, cancellation, and fail-closed selection.
 - A readiness regression test covers metadata that loads before a provider attaches its event listeners.
 
+## GitHub CI
+
+[The Ubuntu CI run for commit `14c1e8e`](https://github.com/phcodesage/react-youtube-original-player/actions/runs/39320396766) passed dependency installation, TypeScript/unit/HTTP checks, library/demo builds, browser tests, and package-content validation.
+
+The first Linux run exposed an HLS play/pause feedback loop. Playback commands now run when control props change, and a regression test ensures that an ended stream does not restart because a callback rerenders its parent. Native-HLS-only checks are skipped on platforms that do not expose native HLS; the standard HLS path is tested in all three engines.
+
 ## Live YouTube checks
 
 | Engine/path | Spanish sample, English viewer locale | English sample, Spanish viewer locale |
@@ -24,7 +30,7 @@ The samples are `8TT2-kwAss0` and `Af6i6ChAVTw`. All eight checks returned the o
 
 [Recorded results](evidence/live-playback.json) contain chosen original audio/video format IDs and observed playback state. Reports contain no signed CDN URLs or credentials. Local screenshots are in ignored `artifacts/`.
 
-These checks follow YouTube's explicit original-track metadata; they do not use speech recognition or establish recording authorship. Physical iPhones/Android devices, every Safari application release, signed-in YouTube accounts, and every YouTube URL have not been tested. Mobile viewport checks and native HLS fallback checks do not constitute physical-device certification. CI is configured but has not been run remotely.
+These checks follow YouTube's explicit original-track metadata; they do not use speech recognition or establish recording authorship. Physical iPhones/Android devices, every Safari application release, signed-in YouTube accounts, and every YouTube URL have not been tested. Mobile viewport checks and native HLS fallback checks do not constitute physical-device certification.
 
 Native HLS testing exposed a metadata-listener startup race, which was fixed by observing media readiness as well as the metadata event. Request cancellation testing also identified a streaming adapter issue; the relay now reads the Web stream directly, cancels abandoned reads, and has a regression test.
 
