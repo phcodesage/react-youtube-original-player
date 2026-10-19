@@ -4,7 +4,7 @@ Checked 2026-10-20 on macOS arm64, Node 26.8.1, Playwright 1.64.1, and yt-dlp 20
 
 ## Automated checks
 
-- `npm run check`: TypeScript, 35 unit/HTTP tests, ESM library/declarations, and production demo build passed.
+- `npm run check`: TypeScript, 36 unit/HTTP tests, ESM library/declarations, and production demo build passed.
 - Five offline browser tests passed in each of Chromium 149.0.7827.55, Firefox 157.0, and WebKit 27.2: 15 passing checks across the engines.
 - A separate WebKit native-HLS fallback test passed with Media Source Extensions disabled: 16 passing browser checks in total.
 - Coverage includes actual local HLS playback through the relay, original-versus-dub selection, time updates, pause/resume, continuous 1.1x rate, paused/playing seeking, one start per source, end events, strict blocking, and a 390px viewport.

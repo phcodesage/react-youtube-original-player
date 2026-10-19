@@ -34,6 +34,7 @@ test('URL resolves through the real relay into original-only HLS with media cont
   await page.getByLabel('Seek to seconds').fill('7.8');
   await page.getByRole('button', { name: 'Seek', exact: true }).click();
   await expect(events).toContainText('onEnd');
+  await expect(media).toHaveJSProperty('paused', true);
 });
 
 test('native HLS plays when Media Source Extensions are unavailable', async ({ page, browserName }) => {

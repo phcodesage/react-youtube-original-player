@@ -1,5 +1,5 @@
 import { afterEach, expect, it, vi } from 'vitest';
-import { createRef, forwardRef } from 'react';
+import { createRef, forwardRef, useState } from 'react';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import { OriginalYouTubePlayer, ResolvedYouTubePlayer, type OriginalPlayerHandle } from '../src';
@@ -11,7 +11,7 @@ vi.mock('react-player', () => ({
       data-playing={String(playing)} data-playback-rate={Number(playbackRate)} />;
   }),
 }));
-afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 const src = 'https://youtu.be/8TT2-kwAss0';
 
 it('preserves ReactPlayer configuration with v3 language hints and never claims selected audio', () => {
@@ -112,4 +112,27 @@ it('shows resolver errors without playing YouTube as a fallback', async () => {
   await waitFor(() => expect(view.getByRole('alert').textContent).toContain('No original track'));
   expect(view.queryByTestId('embed')).toBeNull();
   expect(onResolveError).toHaveBeenCalledTimes(1);
+});
+
+it('does not replay an ended HLS source when callbacks rerender the parent', () => {
+  const play = vi.spyOn(HTMLMediaElement.prototype, 'play').mockImplementation(function (this: HTMLMediaElement) {
+    Object.defineProperty(this, 'paused', { value: false, configurable: true });
+    return Promise.resolve();
+  });
+  function ControlledPlayer() {
+    const [, setTicks] = useState(0);
+    return <OriginalYouTubePlayer src={src} originalSource="/original.m3u8" originalSourceType="hls" playing
+      onPlaybackError={() => {}}
+      onTimeUpdate={() => setTicks((ticks) => ticks + 1)}
+      onEnd={() => setTicks((ticks) => ticks + 1)} />;
+  }
+  const view = render(<ControlledPlayer />);
+  const media = view.getByTestId('embed');
+  fireEvent.loadedMetadata(media);
+  expect(play).toHaveBeenCalledTimes(1);
+  fireEvent.timeUpdate(media);
+  Object.defineProperty(media, 'paused', { value: true, configurable: true });
+  fireEvent.ended(media);
+  expect(play).toHaveBeenCalledTimes(1);
+  expect((media as HTMLVideoElement).paused).toBe(true);
 });

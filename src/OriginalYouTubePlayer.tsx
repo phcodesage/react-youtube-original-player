@@ -96,6 +96,8 @@ const PlayerSession = forwardRef<OriginalPlayerHandle, OriginalYouTubePlayerProp
     const ready = useRef(false);
     const started = useRef(false);
     const pendingSeek = useRef<number | null>(null);
+    const playbackErrorCallback = useRef(onPlaybackError);
+    playbackErrorCallback.current = onPlaybackError;
     const blocked = requireOriginalAudio && !originalSource;
     const capability = useMemo<PlaybackCapability>(() => ({
       mode: blocked ? 'blocked' : originalSource ? 'original-source' : 'youtube',
@@ -152,18 +154,21 @@ const PlayerSession = forwardRef<OriginalPlayerHandle, OriginalYouTubePlayerProp
       getMediaElement: () => media.current,
     }));
 
-    // ReactPlayer manages embed playback. Native media uses the same public props.
+    // Apply source playback commands only when control props change. ReactPlayer
+    // otherwise reconciles play/pause on every time-update render, which can
+    // replay an ended HLS source before its queued ended event is delivered.
     useEffect(() => {
-      if (!originalSource || originalSourceType === 'hls' || !media.current || blocked) return;
+      if (!originalSource || !media.current || blocked) return;
+      if (originalSourceType === 'hls' && !metadataLoaded && mediaProps.preload !== 'none') return;
       const element = media.current;
       element.playbackRate = playbackSpeed;
       if (playing === true && element.paused) {
         void element.play().catch((error: unknown) => {
           // Source replacement/unmount can abort a pending play request normally.
-          if (error instanceof Error && error.name !== 'AbortError') onPlaybackError?.(error);
+          if (error instanceof Error && error.name !== 'AbortError') playbackErrorCallback.current?.(error);
         });
       } else if (playing === false && !element.paused) element.pause();
-    }, [mounted, originalSource, originalSourceType, blocked, playing, playbackSpeed, onPlaybackError]);
+    }, [mounted, metadataLoaded, originalSource, originalSourceType, blocked, playing, playbackSpeed, mediaProps.preload]);
 
     const handlers: MediaProps = {
       ...mediaProps,
@@ -195,7 +200,7 @@ const PlayerSession = forwardRef<OriginalPlayerHandle, OriginalYouTubePlayerProp
           ? <video {...handlers} ref={media} src={originalSource} controls={controls}
               playsInline={playsInline} style={playerStyle} aria-label={originalTitle ?? 'Original source video'} />
           : <ReactPlayer {...handlers} ref={media} src={originalSource ?? src} controls={controls}
-              playsInline={playsInline} playing={metadataLoaded || mediaProps.preload === 'none' ? playing : undefined} playbackRate={playbackSpeed}
+              playsInline={playsInline} playing={!originalSource && (metadataLoaded || mediaProps.preload === 'none') ? playing : undefined} playbackRate={playbackSpeed}
               width={width} height={height} style={style}
               config={{ ...config, youtube: {
                 ...config?.youtube,
